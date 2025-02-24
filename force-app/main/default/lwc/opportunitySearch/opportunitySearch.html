@@ -1,0 +1,47 @@
+<template>
+    <lightning-card title="Opportunity Search">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_2-of-4">
+                <lightning-input 
+                    label="Search Opportunity by Name" 
+                    name="searchTerm"
+                    value={searchTerm} 
+                    onchange={handleInputChange}>
+                </lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+                <lightning-input 
+                    type="number"
+                    label="Min Amount" 
+                    name="minAmount"
+                    value={minAmount} 
+                    onchange={handleInputChange}>
+                </lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_1-of-4">
+                <lightning-input 
+                    type="number"
+                    label="Max Amount" 
+                    name="maxAmount"
+                    value={maxAmount} 
+                    onchange={handleInputChange}>
+                </lightning-input>
+            </div>
+        </div>
+       
+        <!-- Display error if exists -->
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+
+        <!-- Display results in a table -->
+        <template if:true={opportunitiesFound}>
+            <lightning-datatable
+                key-field="Id"
+                data={opportunities}
+                columns={columns}>
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>
