@@ -1,24 +1,29 @@
-<h2>Angular Opportunity Search</h2>
-<div>
-  <input type="text" [(ngModel)]="searchTerm" placeholder="Search Opportunity by Name" (input)="onInputChange()">
-  <input type="number" [(ngModel)]="minAmount" placeholder="Min Amount" (input)="onInputChange()">
-  <input type="number" [(ngModel)]="maxAmount" placeholder="Max Amount" (input)="onInputChange()">
-</div>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Stage</th>
-      <th>Close Date</th>
-      <th>Amount</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let opp of opportunities">
-      <td>{{ opp.Name }}</td>
-      <td>{{ opp.StageName }}</td>
-      <td>{{ opp.CloseDate }}</td>
-      <td>{{ opp.Amount }}</td>
-    </tr>
-  </tbody>
-</table>
+<lightning-card title="Opportunity Search">
+  <div class="slds-grid slds-gutters">
+    <div class="slds-col slds-size_2-of-4">
+      <label class="slds-form-element__label slds-no-flex">Search Opportunity by Name</label>
+      <input
+        type="text"
+        class="slds-input"
+        [(ngModel)]="searchTerm"
+        (input)="onInputChange()">
+    </div>
+    <div class="slds-col slds-size_1-of-4">
+      <label class="slds-form-element__label slds-no-flex">Min Amount</label>
+      <input
+        type="number"
+        class="slds-input"
+        [(ngModel)]="minAmount"
+        (input)="onInputChange()">
+    </div>
+    <div class="slds-col slds-size_1-of-4">
+      <label class="slds-form-element__label slds-no-flex">Max Amount</label>
+      <input
+        type="number"
+        class="slds-input"
+        [(ngModel)]="maxAmount"
+        (input)="onInputChange()">
+    </div>
+  </div>
+  <lightning-datatable *ngIf="opportunitiesFound" [opportunities]="opportunities"></lightning-datatable>
+</lightning-card>

@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { OpportunityService } from '../opportunity.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { LightningCardComponent } from "../lightning-card/lightning-card.component";
+import { LightningDatatableComponent } from '../lightning-datatable/lightning-datatable.component';
 
 @Component({
   selector: 'app-opportunity-search',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, LightningCardComponent, LightningDatatableComponent],
   templateUrl: './opportunity-search.component.html',
   styleUrls: ['./opportunity-search.component.css']
 })
@@ -35,5 +37,9 @@ export class OpportunitySearchComponent {
         next: (data: any[]) => { this.opportunities = data; },
         error: (err) => { console.error(err); },
     });
+  }
+
+  get opportunitiesFound(): Boolean {
+    return this.opportunities.length > 0;
   }
 }
