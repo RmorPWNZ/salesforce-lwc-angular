@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { OpportunityService } from '../opportunity.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LightningCardComponent } from "../lightning-card/lightning-card.component";
 import { LightningDatatableComponent } from '../lightning-datatable/lightning-datatable.component';
+import { OpportunitySearchService } from '../services/opportunity-search.service';
+import { OpportunitySearchParams } from '../model/opportunity.model';
 
 @Component({
   selector: 'app-opportunity-search',
@@ -18,8 +19,20 @@ export class OpportunitySearchComponent {
   maxAmount?: number;
   opportunities: any[] = [];
   debounceTimeout: any;
+  
+  constructor(private opportunitySearchService: OpportunitySearchService) {}
 
-  constructor(private opportunityService: OpportunityService) {}
+  get opportunitiesFound(): Boolean {
+    return this.opportunities.length > 0;
+  }
+
+  get searchParams(): OpportunitySearchParams {
+    return {
+      searchTerm: this.searchTerm,
+      minAmount: this.minAmount,
+      maxAmount: this.maxAmount
+    };
+  }
 
   onInputChange() {
     if (this.debounceTimeout) {
@@ -32,14 +45,10 @@ export class OpportunitySearchComponent {
   }
 
   search() {
-    this.opportunityService.searchOpportunities(this.searchTerm, this.minAmount, this.maxAmount)
+    this.opportunitySearchService.searchOpportunities(this.searchParams)
       .subscribe({
         next: (data: any[]) => { this.opportunities = data; },
         error: (err) => { console.error(err); },
     });
-  }
-
-  get opportunitiesFound(): Boolean {
-    return this.opportunities.length > 0;
   }
 }

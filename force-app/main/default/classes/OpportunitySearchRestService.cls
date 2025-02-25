@@ -10,8 +10,8 @@ global with sharing class OpportunitySearchRestService {
 
         OpportunitySearchParams params = new OpportunitySearchParams();
         params.searchTerm = searchTerm;
-        params.minAmount = (minAmountStr != null) ? Integer.valueOf(minAmountStr) : null;
-        params.maxAmount = (maxAmountStr != null) ? Integer.valueOf(maxAmountStr) : null;
+        params.minAmount = String.isNotBlank(minAmountStr) ? Integer.valueOf(minAmountStr) : null;
+        params.maxAmount = String.isNotBlank(maxAmountStr) ? Integer.valueOf(maxAmountStr) : null;
  
         return (List<Opportunity> ) new OpportunitySelector()
             .selectOpportunitiesBySearchingParams(params)

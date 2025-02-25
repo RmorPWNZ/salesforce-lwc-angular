@@ -10,16 +10,16 @@
     <tbody>
       <tr *ngFor="let opp of opportunities" class="slds-hint-parent">
         <td>
-          <div class="slds-truncate" title="{{ opp.Name }}">{{ opp.Name }}</div>
+          <div class="slds-truncate" title="{{ opp.name }}">{{ opp.name }}</div>
         </td>
         <td>
-          <div class="slds-truncate" title="{{ opp.StageName }}">{{ opp.StageName }}</div>
+          <div class="slds-truncate" title="{{ opp.stageName }}">{{ opp.stageName }}</div>
         </td>
         <td>
-          <div class="slds-truncate" title="{{ opp.CloseDate }}">{{ opp.CloseDate | date }}</div>
+          <div class="slds-truncate" title="{{ opp.closeDate }}">{{ opp.closeDate | date }}</div>
         </td>
         <td class="slds-text-align_right">
-          <div class="slds-truncate" title="{{ opp.Amount | currency }}">{{ opp.Amount | currency }}</div>
+          <div class="slds-truncate" title="{{ opp.amount | currency }}">{{ opp.amount | currency }}</div>
         </td>
       </tr>
     </tbody>
