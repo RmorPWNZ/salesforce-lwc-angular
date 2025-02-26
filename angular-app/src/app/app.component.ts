@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OpportunitySearchComponent } from './opportunity-search/opportunity-search.component';
+import { OpportunitySearchComponent } from './components/opportunity-search/opportunity-search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CanvasIntegrationService } from './services/canvas-integration.service';
 import { LocalStorageService } from './services/local-storage.service';

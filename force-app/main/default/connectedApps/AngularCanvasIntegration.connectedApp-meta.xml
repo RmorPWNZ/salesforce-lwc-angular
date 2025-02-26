@@ -9,7 +9,7 @@
     <contactEmail>some-email@gmail.com</contactEmail>
     <label>AngularCanvasIntegration</label>
     <oauthConfig>
-        <callbackUrl>https://1c09-109-121-52-232.ngrok-free.app</callbackUrl>
+        <callbackUrl>https://login.salesforce.com</callbackUrl>
         <isAdminApproved>true</isAdminApproved>
         <isClientCredentialEnabled>false</isClientCredentialEnabled>
         <isCodeCredentialEnabled>false</isCodeCredentialEnabled>

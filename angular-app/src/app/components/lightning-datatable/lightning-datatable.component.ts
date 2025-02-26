@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Opportunity } from '../model/opportunity.model';
+import { Opportunity } from 'src/app/model/opportunity.model';
+
 
 @Component({
   selector: 'lightning-datatable',

@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LightningCardComponent } from "../lightning-card/lightning-card.component";
 import { LightningDatatableComponent } from '../lightning-datatable/lightning-datatable.component';
-import { OpportunitySearchService } from '../services/opportunity-search.service';
-import { OpportunitySearchParams } from '../model/opportunity.model';
+import { OpportunitySearchService } from '../../services/opportunity-search.service';
+import { OpportunitySearchParams } from '../../model/opportunity.model';
 
 @Component({
   selector: 'app-opportunity-search',
@@ -38,7 +38,7 @@ export class OpportunitySearchComponent {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
-    // Debounce for 500ms
+
     this.debounceTimeout = setTimeout(() => {
       this.search();
     }, 500);

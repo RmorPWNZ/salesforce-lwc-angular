@@ -13,9 +13,8 @@ export default class OpportunitySearch extends LightningElement {
         const field = event.target.name;
         this[field] = event.target.value;
         
-        // Clear any existing debounce timer
         window.clearTimeout(this.debounceTimeout);
-        // Set a new timer – if no new input occurs in 500ms, trigger the search
+
         this.debounceTimeout = window.setTimeout(() => {
             this.handleSearch();
         }, 500);
